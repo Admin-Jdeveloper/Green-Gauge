@@ -194,40 +194,41 @@ const exportPDF = () => {
             />
           </div>
 
-          <div className="flex gap-4 justify-center">
-            <button
-              onClick={runAnalysis}
-              disabled={loading}
-              className="px-6 py-3 flex items-center gap-2 bg-green-200 text-black border-2 font-semibold rounded-lg hover:bg-green-400 disabled:opacity-50"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="animate-spin" size={18} /> Analyzing...
-                </>
-              ) : (
-                <>
-                  <Search size={18} /> Analyze Location
-                </>
-              )}
-            </button>
+         <div className="flex flex-wrap gap-4 justify-center">
+  <button
+    onClick={runAnalysis}
+    disabled={loading}
+    className="px-6 py-3 flex items-center gap-2 bg-green-200 text-black border-2 font-semibold rounded-lg hover:bg-green-400 disabled:opacity-50"
+  >
+    {loading ? (
+      <>
+        <Loader2 className="animate-spin" size={18} /> Analyzing...
+      </>
+    ) : (
+      <>
+        <Search size={18} /> Analyze Location
+      </>
+    )}
+  </button>
 
-            <button
-              onClick={fetchPrevious}
-              disabled={loading}
-              className="px-6 py-3 bg-blue-200 text-black border-2  font-semibold rounded-lg hover:bg-blue-400 disabled:opacity-50"
-            >
-              {loading ? "Loading..." : "Show Previous"}
-            </button>
+  <button
+    onClick={fetchPrevious}
+    disabled={loading}
+    className="px-6 py-3 bg-blue-200 text-black border-2 font-semibold rounded-lg hover:bg-blue-400 disabled:opacity-50"
+  >
+    {loading ? "Loading..." : "Show Previous"}
+  </button>
 
-            {results.length > 0 && (
-              <button
-                onClick={exportPDF}
-                className="px-6 py-3 flex items-center gap-2 bg-purple-200 text-black border-2 font-semibold rounded-lg hover:bg-purple-400"
-              >
-                <FileDown size={18} /> Export PDF
-              </button>
-            )}
-          </div>
+  {/* keep space but only show when results available */}
+  {results.length > 0 && (
+    <button
+      onClick={exportPDF}
+      className="px-6 py-3 flex items-center gap-2 bg-purple-200 text-black border-2 font-semibold rounded-lg hover:bg-purple-400"
+    >
+      <FileDown size={18} /> Export PDF
+    </button>
+  )}
+</div>
         </div>
 
         {error && (

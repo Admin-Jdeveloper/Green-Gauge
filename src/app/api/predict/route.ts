@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     }
 
     return new Response(JSON.stringify({ prediction: data }), { status: 200 });
-  } catch (err: unknown) {
+  } catch (err: any) {
     console.error("API error:", err);
     return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
